@@ -1,0 +1,30 @@
+<h1>Log in to TrelloClone</h1>
+
+<%= render 'shared/messages' %>
+
+<div class="start_page_form">
+  <%= form_tag sessions_path do %>
+    <div>
+      <%= label_tag :email, 'Email', class: '' %>
+      <%= email_field_tag :email, '', class: '', placeholder: "e.g., yourname@example.com" %>
+    </div>
+
+    <div>
+      <%= label_tag :password, 'Password', class: '' %>
+      <%= password_field_tag :password, '', class: '', placeholder: "e.g., .........." %>
+    </div>
+
+    <div class="form_buttons">
+      <%= submit_tag 'Log In', class: '' %>
+
+      <div class="footer_spans">
+        <span class="form_footer_link"><%= link_to 'Cancel', welcome_path, class: '' %></span>
+      </div>
+
+      <div class="sub_footer_spans">
+        <span>Forgot your password?</span>
+        <span class="form_footer_link"><%= link_to 'Reset it.', forgot_password_path %></span>
+      </div>
+    </div>
+  <% end %>
+</div>

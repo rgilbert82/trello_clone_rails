@@ -1,0 +1,46 @@
+<div>
+  <div class="close_modal_layer"></div>
+</div>
+
+<div class="board_options menu_boards_list">
+  <form action="" method="post">
+    <h3>Boards</h3>
+    <div class="boards_list_wrapper">
+      <a class="x_out_card_options_window">
+        <span>
+          <div class="cross_x"></div>
+        </span>
+      </a>
+
+      {{#if starred_boards}}
+      <div class="menu_boards_list_header">
+        <div class="menu_boards_list_header_img"><img src="<%= asset_path('star_icon_gray.png') %>" height="16px" /></div><!--
+        --><h4>Starred Boards</h4>
+      </div>
+
+      <ul class="menu_boards_list_ul">
+        {{#each starred_boards}}
+        <li data-board_id="{{this.id}}">
+          <div class="board_list_item_left">&nbsp;</div><!--
+          --><div class="board_list_item_right">{{this.title}}</div>
+        </li>
+        {{/each}}
+      </ul>
+      {{/if}}
+
+      <div class="menu_boards_list_header">
+        <div class="menu_boards_list_header_img"><img src="<%= asset_path('user_icon.png') %>" height="16px"/></div><!--
+        --><h4>Personal Boards</h4>
+      </div>
+
+      <ul class="menu_boards_list_ul">
+        {{#each personal_boards}}
+        <li data-board_id="{{this.id}}">
+          <div class="board_list_item_left">&nbsp;</div><!--
+          --><div class="board_list_item_right">{{this.title}}</div>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </form>
+</div>

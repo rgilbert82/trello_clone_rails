@@ -1,0 +1,12 @@
+<input data-board_id="{{id}}" hidden />
+
+<div class="board_selector_container">
+  <div class="board_title board_selector_header_div"><h1>{{title}}</h1></div>
+  <div class="header_selector_star_icon board_selector_header_div">
+    {{#if starred}}
+      <a href="#"><img src="<%= asset_path('star_icon_yellow.png') %>" /></a>
+    {{else}}
+      <a href="#"><img src="<%= asset_path('star_icon.png') %>" /></a>
+    {{/if}}
+  </div>
+</div>

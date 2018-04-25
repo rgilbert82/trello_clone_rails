@@ -1,0 +1,185 @@
+<input class="hidden_card_input" data-card_id="{{id}}" data-list_id="{{list_id}}" hidden />
+
+<div id="gray_layer"></div>
+
+<div id="card_window_wrapper">
+  <div id="card_window">
+    {{#if mainPicture}}
+    <div class="card_image_header">
+      <img src="{{mainPicture.url_thumb}}" />
+    </div>
+    {{/if}}
+
+    <div id="card_window_inner" class="{{#if mainPicture}}card_window_inner_shadow{{/if}}">
+      <div id="card_window_content">
+        <div id="card_main_content">
+          <div class="card_section_header">
+            <img src="<%= asset_path('card_icon.png') %>" width="18px"/>
+            <h1 class="card_title_header">{{title}}</h1>
+            <input type="text" value="{{title}}" hidden />
+          </div>
+          <h3>in list <u>{{listTitle}}</u></h3>
+
+          {{#if labels}}
+          <div id="card_content_labels">
+            <h3>Labels</h3>
+            <ul>
+              {{#each labels}}
+              <li class="modal_opener card_content_label label_{{this}}"></li>
+              {{/each}}
+            </ul>
+          </div>
+          {{/if}}
+
+          {{#if due_date}}
+          <div id="card_content_date">
+            <h3>Due Date</h3>
+            {{#if due_date_highlighted}}
+            <div class="due_date_toggle highlighted_dueDate">
+              <img src="<%= asset_path('checkbox_checked.png') %>" width="14px"/>
+              <span class="modal_opener">{{due_date.date}} at {{due_date.time}}</span>
+            </div>
+            {{else}}
+            <div class="due_date_toggle">
+              <img src="<%= asset_path('checkbox_unchecked.png') %>" width="14px"/>
+              <span class="modal_opener">{{due_date.date}} at {{due_date.time}}</span>
+            </div>
+            {{/if}}
+          </div>
+          {{/if}}
+
+          <div id="card_content_description">
+            {{#if description}}
+            <div class="edit_description_header">
+              <h3>Description <a class="open_edit_description" href="#">Edit</a></h3>
+              <p>{{description}}</p>
+            </div>
+            {{else}}
+            <div class="edit_description_header">
+              <img src="<%= asset_path('activity_icon_1.png') %>" width="12px" />
+              <a class="open_edit_description" href="#">Edit the description...</a>
+            </div>
+            {{/if}}
+            <form action="" method="post">
+              <textarea name="description_field" id="description_field" required>{{description}}</textarea>
+              <div id="add_list_submit_or_cancel">
+                <input type="submit" value="Save" />
+                <div id="save_card_description">
+                  <a href="#">
+                    <span>
+                      <div class="cross_x"></div>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        {{#if pictures}}
+        <div id="card_images">
+          <div class="card_section_header">
+            <img src="<%= asset_path('paperclip_icon_gray.png') %>" width="18px"/>
+            <h1>Images</h1>
+          </div>
+          <ul>
+            {{#each pictures}}
+            <li class="picture_list_item" data-image="{{this.id}}">
+              <div class="image_list_item">
+                <img src="{{this.url_thumb}}" width="110px"/><!--
+                --><div class="image_list_item_details">
+                  <h4>{{this.image}}</h4>
+                  <span>Added {{this.date_time}}</span>
+                  <div class="image_list_item_links">
+                    <a href="{{this.url_full}}" class="picture_list_item_link" download>Download</a>
+                    <a href="" class="delete_picture_link modal_opener picture_list_item_link"data-image="{{this.id}}">Delete</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            {{/each}}
+          </ul>
+          <a href="#" class="add_image_link modal_opener">Add an image...</a>
+        </div>
+        {{/if}}
+
+        <div id="card_add_comment">
+          <div class="card_section_header">
+            <img src="<%= asset_path('comment_icon.png') %>" width="18px"/>
+            <h1>Add Comment</h1>
+          </div>
+          <div class="initial_box">{{initials}}</div>
+          <form>
+            <textarea id="comment_textarea" name="comment" placeholder="Write a comment..." required></textarea>
+            <input type="submit" value="Send" />
+          </form>
+        </div>
+
+        <div id="card_activity">
+          <div class="card_section_header">
+            <img src="<%= asset_path('activity_icon_2.png') %>" width="18px"/>
+            <h1>Activity</h1>
+            <a href="#">Hide Details</a>
+          </div>
+          <ul>
+            {{#each activity}}
+            <li>
+              <div class="initial_box initial_box_small">{{this.user_initials}}</div>
+              <div class="activity_description {{#if this.comment}}activity_description_comment{{/if}}">
+                <h2>{{this.user_name}}</h2><h4>{{{this.description}}}</h4>
+                <span>{{this.date_time}}</span>
+              </div>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
+      </div><!--
+
+      --><div id="card_window_sidebar">
+        <h1>Add</h1>
+        <ul class="modal_opener">
+          <li class="card_labels_button">
+            <img src="<%= asset_path('label_icon.png') %>" width="12px"/>
+            <img src="<%= asset_path('label_icon_white.png') %>" width="12px"/>
+            <h2>Labels</h2>
+          </li>
+          <li class="card_due_date_button">
+            <img src="<%= asset_path('clock_icon_gray.png') %>" width="12px"/>
+            <img src="<%= asset_path('clock_icon_white.png') %>" width="12px"/>
+            <h2>Due Date</h2>
+          </li>
+          <li class="card_add_image_button">
+            <img src="<%= asset_path('paperclip_icon_gray.png') %>" width="12px"/>
+            <img src="<%= asset_path('paperclip_icon_white.png') %>" width="12px"/>
+            <h2>Image</h2>
+          </li>
+        </ul>
+
+        <h1>Actions</h1>
+        <ul class="modal_opener">
+          <li class="move_card_button">
+            <img src="<%= asset_path('move_icon_thin.png') %>" width="12px"/>
+            <img src="<%= asset_path('move_icon_thin_white.png') %>" width="12px"/>
+            <h2>Move</h2>
+          </li>
+          <li class="copy_card_button">
+            <img src="<%= asset_path('card_icon.png') %>" width="12px"/>
+            <img src="<%= asset_path('card_icon_white.png') %>" width="12px"/>
+            <h2>Copy</h2>
+          </li>
+          <li class="archive_card_button">
+            <img src="<%= asset_path('archive_icon.png') %>" width="12px"/>
+            <img src="<%= asset_path('archive_icon_white.png') %>" width="12px"/>
+            <h2>Archive</h2>
+          </li>
+        </ul>
+      </div>
+
+      <div id="x_out_card_window">
+        <span>
+          <div class="cross_x"></div>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

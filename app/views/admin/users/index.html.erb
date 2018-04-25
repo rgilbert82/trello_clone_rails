@@ -1,0 +1,42 @@
+<h1 class="admin_header">TrelloClone users</h1>
+
+<%= render 'shared/messages' %>
+
+<section class="admin_content">
+  <ul class="admin_content_links">
+    <li><%= link_to "Admin Home", admin_path %></li>
+  </ul>
+
+  <h3>Admins</h3>
+  <% if @admins.size == 0 %>
+    <small class="admin_nothing_here">No Admins</small>
+  <% else %>
+    <ol class="admin_content_list">
+      <% @admins.each do |user| %>
+        <%= render 'user_list_item', user: user, admin: true %>
+      <% end %>
+    </ol>
+  <% end %>
+
+  <h3>Active Users</h3>
+  <% if @active_users.size == 0 %>
+    <small class="admin_nothing_here">No Active Users</small>
+  <% else %>
+    <ol class="admin_content_list">
+      <% @active_users.each do |user| %>
+        <%= render 'user_list_item', user: user, admin: false %>
+      <% end %>
+    </ol>
+  <% end %>
+
+  <h3>Inactive Users</h3>
+  <% if @inactive_users.size == 0 %>
+    <small class="admin_nothing_here">No Inactive Users</small>
+  <% else %>
+    <ol class="admin_content_list">
+      <% @inactive_users.each do |user| %>
+        <%= render 'user_list_item', user: user, admin: false %>
+      <% end %>
+    </ol>
+  <% end %>
+</section>

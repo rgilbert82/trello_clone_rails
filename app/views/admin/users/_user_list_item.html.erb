@@ -1,0 +1,14 @@
+<li>
+  <div class="half-col left-col">
+    <b><%= user.full_name %></b>
+    <span><%= user.email %></span>
+    <small><strong>created:</strong><%= user.created_at %></small>
+    <small><strong>updated:</strong><%= user.updated_at %></small>
+  </div><!--
+
+  --><div class="half-col right-col">
+    <% unless admin %>
+      <%= link_to "[Delete user]", admin_user_path(user), method: :delete, data: { confirm: "Are you sure? "} %>
+    <% end %>  
+  </div>
+</li>

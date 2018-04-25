@@ -1,0 +1,55 @@
+<div class="card_options label_card">
+  <form action="" method="post">
+    <h3>Labels</h3>
+    <a class="x_out_card_options_window">
+      <span>
+        <div class="cross_x"></div>
+      </span>
+    </a>
+
+    <ul>
+      <li>
+        <div class="label_yellow"><span></span></div>
+        <div class="label_yellow">
+          <input type="checkbox" {{isInArray "yellow" labels}}/>
+          <img src="<%= asset_path('checkmark_icon.png') %>" height="34px" width="34px"/>
+        </div>
+      </li>
+      <li>
+        <div class="label_orange"><span></span></div>
+        <div class="label_orange">
+          <input type="checkbox" {{isInArray "orange" labels}}/>
+          <img src="<%= asset_path('checkmark_icon.png') %>" height="34px" width="34px"/>
+        </div>
+      </li>
+      <li>
+        <div class="label_red"><span></span></div>
+        <div class="label_red">
+          <input type="checkbox" {{isInArray "red" labels}}/>
+          <img src="<%= asset_path('checkmark_icon.png') %>" height="34px" width="34px"/>
+        </div>
+      </li>
+      <li>
+        <div class="label_purple"><span></span></div>
+        <div class="label_purple">
+          <input type="checkbox" {{isInArray "purple" labels}}/>
+          <img src="<%= asset_path('checkmark_icon.png') %>" height="34px" width="34px"/>
+        </div>
+      </li>
+      <li>
+        <div class="label_blue"><span></span></div>
+        <div class="label_blue">
+          <input type="checkbox" {{isInArray "blue" labels}}/>
+          <img src="<%= asset_path('checkmark_icon.png') %>" height="34px" width="34px"/>
+        </div>
+      </li>
+      <li>
+        <div class="label_green"><span></span></div>
+        <div class="label_green">
+          <input type="checkbox" {{isInArray "green" labels}}/>
+          <img src="<%= asset_path('checkmark_icon.png') %>" height="34px" width="34px"/>
+        </div>
+      </li>
+    </ul>
+  </form>
+</div>

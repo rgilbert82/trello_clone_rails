@@ -1,0 +1,12 @@
+<h1 class="admin_header">Admin Home</h1>
+
+<%= render 'shared/messages' %>
+
+<section class="admin_content">
+  <ul class="admin_content_links">
+    <li><%= link_to "Admin User Account", account_path %></li>
+    <li><%= link_to "App Users", admin_users_path %></li>
+    <li><%= link_to "User Payments", admin_payments_path %></li>
+    <li><%= link_to "Log Out", logout_path %></li>
+  </ul>
+</section>

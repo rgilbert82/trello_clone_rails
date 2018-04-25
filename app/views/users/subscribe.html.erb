@@ -1,0 +1,24 @@
+<script>Stripe.setPublishableKey("<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>");</script>
+<%= javascript_include_tag 'payments' %>
+
+<h1>Subscribe to TrelloClone</h1>
+
+<%= render 'current_card_info' %>
+
+<% if @card_info %>
+  <div class="start_page_form">
+    <%= form_tag activate_path, method: "post", id: "resubscribe-form" do %>
+      <fieldset class="credit_card">
+        <h3>Subscribe with your current card...</h3>
+        <div class="form_buttons">
+          <input type="submit" value="Subscribe" />
+        </div>
+      </fieldset>
+    <% end %>
+
+    <h3>...or use another card.</h3>
+  </div>
+<% end %>
+
+<%= render 'shared/messages' %>
+<%= render 'payment_form', subscribe: true %>

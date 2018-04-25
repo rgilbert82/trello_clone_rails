@@ -1,0 +1,64 @@
+<script>Stripe.setPublishableKey("<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>");</script>
+<%= javascript_include_tag 'payments' %>
+
+<h1>Create a TrelloClone Account</h1>
+
+<%= render 'shared/messages' %>
+
+<div class="start_page_form">
+  <%= form_for @user, html: {id: "payment-form"} do |f| %>
+    <fieldset>
+      <div>
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name, placeholder: "e.g., John" %>
+      </div>
+
+      <div>
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name, placeholder: "e.g., Doe" %>
+      </div>
+
+      <div>
+        <%= f.label :email %>
+        <%= f.email_field :email, placeholder: "e.g., jdoe@example.com" %>
+      </div>
+
+      <div>
+        <%= f.label :password %>
+        <% if @user.new_record? %>
+          <%= f.password_field :password, placeholder: "e.g., ........." %>
+        <% else %>
+          <%= f.password_field :password %>
+        <% end %>
+      </div>
+    </fieldset>
+
+    <fieldset class="credit_card">
+      <p class="test_card_notice">The credit card processing service is currently operating in test mode, so no cards will actually be charged. You can use a <%= link_to "Test Card", test_cards_path, target: '_blank' %> to sign up.</p>
+      <span class="payment-errors"></span>
+
+      <div>
+        <label for="credit-card-number">Credit Card Number</label>
+        <input id="credit-card-number" type="text" data-stripe="number" />
+      </div>
+
+      <div>
+        <label for="security-code">Security Code</label>
+        <input id="security-code" type="text" data-stripe="cvc" />
+      </div>
+
+      <div>
+        <label>Expiration Date</label>
+        <%= select_month(Date.today, {add_month_numbers: true}, data: { stripe: "exp-month" }) %>
+        <%= select_year(Date.today.year, {start_year: Date.today.year, end_year: Date.today.year + 4}, data: { stripe: "exp-year" }) %>
+      </div>
+    </fieldset>
+
+    <div class="form_buttons">
+      <input type="submit" value="Create New Account" />
+      <div class="footer_spans">
+        <span class="form_footer_link"><%= link_to 'Cancel', welcome_path, class: '' %></span>
+      </div>
+    </div>
+  <% end %>
+</div>

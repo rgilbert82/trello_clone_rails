@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% if logged_in? %>
+      <title>Trello Clone - <%= current_user_username %></title>
+    <% else %>
+      <title>Welcome to Trello Clone!</title>
+    <% end %>
+    
+    <%= csrf_meta_tags %>
+    <%= favicon_link_tag 'favicon.ico' %>
+    <%= stylesheet_link_tag    'start_page', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'start_page', 'data-turbolinks-track': 'reload' %>
+    <script src="https://js.stripe.com/v2/"></script>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Trello Clone - <%= current_user_username %></title>
+    <%= csrf_meta_tags %>
+    <%= favicon_link_tag 'favicon.ico' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <surface>
+      <div id="header">
+        <a href="#" id="header_logo"></a>
+
+        <div id="header_boards_button" class="header_button">
+          <a href="#">
+            <span>Boards</span>
+          </a>
+        </div>
+
+        <div id="header_search" class="header_button">
+          <input type="text" autocomplete="off" id="header_search_input" />
+          <span></span>
+          <div id="header_search_results">
+            <h2>Search</h2>
+            <h4 id="search_no_results">No Results...</h4>
+            <div id="search_results_list"></div>
+          </div>
+        </div>
+
+        <div id="header_notifications" class="header_button">
+          <a href="#">
+            <span></span>
+          </a>
+        </div>
+
+        <div id="header_username" class="header_button">
+          <a id="header_username_initials_name" href="#">
+            <span><%= @user ? current_user_initials : '' %></span>
+            <span><%= @user ? current_user_username : '' %></span>
+          </a>
+        </div>
+
+        <div id="header_add_board" class="header_button">
+          <a href="#">
+            <span>
+              <div class="cross"></div>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div id="content">
+        <main>
+          <%= yield %>
+        </main>
+      </div>
+
+      <!-- Hidden Picture Form! -->
+
+      <div id="secret_picture_form" >
+        <%= form_for @picture do |f| %>
+          <%= f.file_field :image %>
+          <%= f.text_field :card_id %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+    </surface>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= javascript_tag do %>
+      App.user = new User({
+        "first_name": "<%= @user.first_name %>",
+        "last_name": "<%= @user.last_name %>"}
+        );
+      <% if @user.admin? %>
+        App.user.set("admin", true);
+      <% end %>
+
+      <% if session[:error_msg] %>
+        App.message_error = "<%= session[:error_msg] %>"
+        <% session[:error_msg] = nil %>
+      <% elsif session[:success_msg] %>
+        App.message_success = "<%= session[:success_msg] %>"
+        <% session[:success_msg] = nil %>
+      <% end %>
+    <% end %>
+  </body>
+</html>

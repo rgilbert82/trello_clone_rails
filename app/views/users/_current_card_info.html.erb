@@ -1,0 +1,8 @@
+<div class="current_card">
+  <% if @card_info %>
+    <h4><small>Current card ends in:</small> <%= @card_info[:last_4] %></h4>
+    <h4><small>Expires:</small> <%= @card_info[:expires] %></h4>
+  <% else %>
+    <h4><small>No card on file</small></h4>
+  <% end %>
+</div>

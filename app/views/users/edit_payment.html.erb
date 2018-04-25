@@ -1,0 +1,8 @@
+<script>Stripe.setPublishableKey("<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>");</script>
+<%= javascript_include_tag 'payments' %>
+
+<h1>Update Credit Card Info</h1>
+
+<%= render 'current_card_info' %>
+<%= render 'shared/messages' %>
+<%= render 'payment_form', subscribe: false %>

@@ -1,0 +1,15 @@
+<input id="hidden_board_input" data-board_id="{{id}}" hidden />
+
+<section class="lists_wrapper">
+  <div id="board_header">
+    <div id="board_title" class="board_header_button">
+      <a href="#"class="board_header_title"><h1>{{title}}</h1></a>
+      <input type="text" value="{{title}}" hidden/>
+    </div>
+    <div id="star_icon" class="{{#if starred}}starred{{/if}} board_header_button"><a href="#"><span></span></a></div>
+    <div id="show_menu" class="board_header_button"><a href="#"><span>Show Menu</span></a></div>
+  </div>
+  <div id="lists">
+    <div id="lists_container" class="lists_container"></div>
+  </div>
+</section>

@@ -1,0 +1,21 @@
+<h1>Forgot Your Password?</h1>
+<h6>We'll send you an email to reset your password</h6>
+
+<%= render 'shared/messages' %>
+
+<div class="start_page_form">
+  <%= form_tag forgot_passwords_path do %>
+    <div>
+      <%= label_tag :email, 'Email', class: '' %>
+      <%= email_field_tag :email, '', class: '', placeholder: "e.g., your_email@here.com" %>
+    </div>
+
+    <div class="form_buttons">
+      <%= submit_tag 'Submit', class: '' %>
+
+      <div class="footer_spans">
+        <span class="form_footer_link"><%= link_to 'Cancel', welcome_path, class: '' %></span>
+      </div>
+    </div>
+  <% end %>
+</div>

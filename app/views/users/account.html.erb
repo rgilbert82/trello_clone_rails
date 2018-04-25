@@ -1,0 +1,19 @@
+<h1 class="admin_header">Account Info</h1>
+
+<%= render 'shared/messages' %>
+
+<section class="admin_content">
+  <ul class="admin_content_links">
+    <% if current_user_is_admin? %>
+      <li><%= link_to "Admin Options", admin_path %></li>
+    <% end %>
+    <li><%= link_to "My TrelloClone Boards", root_path %></li>
+    <li><%= link_to "Update Account", edit_account_path %></li>
+    <% if !current_user_is_admin? && @user.active? %>
+      <li><%= link_to "Update Credit Card", edit_payment_path %></li>
+    <% elsif !current_user_is_admin? && !@user.active? %>
+      <li><%= link_to "Re-activate Your Account", subscribe_path %></li>
+    <% end %>
+    <li><%= link_to "Log Out", logout_path %></li>
+  </ul>
+</section>

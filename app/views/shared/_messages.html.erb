@@ -1,0 +1,10 @@
+<div class="messages-wrapper">
+  <div class="messages-bar">
+    <% flash.each do |name, msg| %>
+      <div class="alert alert-<%= name %>">
+        <a class="close" data-dismiss="alert">&#215;</a>
+        <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+      </div>
+    <% end %>
+  </div>
+</div>

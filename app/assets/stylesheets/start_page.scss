@@ -1,0 +1,577 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require whitespace-reset
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+* {
+  font-family: "Helvetica", Ariel, sans-serif;
+  color: #4d4d4d;
+}
+
+body {
+  padding: 100px 0;
+}
+
+.alert {
+  margin: 30px 0;
+  letter-spacing: 1.2px;
+  color: #fff;
+}
+
+.alert-error {
+  background-color: #FDBDBD;
+}
+
+.alert-success {
+  background-color: #BBFFC3;
+}
+
+.messages-wrapper {
+  width: 430px;
+  margin: 0 auto;
+}
+
+h1 {
+  width: 430px;
+  font-size: 35px;
+  margin: 0 auto 30px auto;
+}
+
+h6 {
+  width: 430px;
+  font-size: 24px;
+  font-weight: normal;
+  margin: 0 auto 50px auto;
+  color: #666;
+}
+
+span.reset_confirmation_link {
+  display: block;
+  width: 430px;
+  margin: 0 auto 50px auto;
+}
+
+span {
+  margin-left: 10px;
+  font-size: 18px;
+  color: #999;
+}
+
+span.form_footer_link a:hover {
+  color: #222;
+}
+
+#welcome_page {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #0079bf;
+  overflow-y: auto;
+}
+
+#welcome_page_header {
+  box-sizing: border-box;
+  display: block;
+  overflow: hidden;
+}
+
+#welcome_page_logo,
+#welcome_page_links {
+  display:inline-block;
+  height: 100%;
+  padding: 20px 30px;
+}
+
+#welcome_page_logo {
+  float: left;
+}
+
+#welcome_page_links {
+  float: right;
+}
+
+#welcome_page_links a {
+  display: inline-block;
+  padding: 0 20px;
+  margin-left: 10px;
+  line-height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.welcome_link_blue {
+  background-color: #00639D;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+}
+
+.welcome_link_blue:hover {
+  background-color: #005B91;
+}
+
+.welcome_link_green {
+  background: linear-gradient(to bottom, #61bd4f 0, #5aac44 100%);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+}
+
+.welcome_link_green:hover {
+  background: linear-gradient(to bottom, #59AE48 0, #56A641 100%);
+}
+#welcome_page_content_wrapper {
+  display: block;
+  padding: 50px 0;
+  background-color: #0080CA;
+  background-image: asset-data-url("texture1.png");
+}
+
+#welcome_page_content {
+  display: block;
+  margin: 0 auto;
+  width: 500px;
+  text-align: center;
+}
+
+#welcome_page_content h2,
+#welcome_page_content h4,
+#welcome_page_content p,
+#welcome_page_content b {
+  color: #fff;
+}
+
+#welcome_page_content h2 {
+  font-size: 35px;
+}
+
+#welcome_page_content h4,
+#welcome_page_content p {
+  font-size: 20px;
+}
+
+#welcome_page_content p {
+  margin: 30px 0;
+  font-weight: 100;
+}
+
+#welcome_page_content h2,
+#welcome_page_content h4 {
+  letter-spacing: 1px;
+}
+
+#welcome_page_content h4 {
+  font-weight: normal;
+  font-size: 22px;
+}
+
+#welcome_page_content #welcome_page_credentials {
+  display: inline-block;
+  margin: 0 auto;
+  text-align: left;
+}
+
+#welcome_page_content #welcome_page_credentials h4 {
+  display: block;
+}
+
+#welcome_page_content #welcome_page_credentials h4 b {
+  display: inline-block;
+  width: 130px;
+}
+
+.footer_spans {
+  display: inline-block;
+}
+
+.sub_footer_spans {
+  margin-top: 50px;
+}
+
+.sub_footer_spans span:first-child {
+  margin-left: 0;
+}
+
+.start_page_form {
+  width: 430px;
+  margin: 0 auto;
+}
+
+.test_card_notice {
+  margin-top: 30px;
+}
+
+#resubscribe-form .form_buttons {
+  margin-top: 20px;
+  margin-bottom: 70px;
+}
+
+label,
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  margin-bottom: 20px;
+  display: block;
+  width: 100%;
+  font-size: 20px;
+}
+
+label {
+  margin-bottom: 10px;
+  font-weight: normal;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+  padding: 10px;
+  background-color: #f1f1f1;
+  border-style: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #777;
+  font-weight: 100;
+}
+
+select {
+  display: inline-block;
+  height: 50px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  font-size: 20px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #a5acb0;
+  outline: none;
+  box-shadow: 0 0 6px #cdd2d4;
+}
+
+input[type="submit"] {
+  display: inline-block;
+  padding: 10px 15px;
+  margin-right: 10px;
+  background: linear-gradient(to bottom, #61bd4f 0, #5aac44 100%);
+  border-style: none;
+  border-radius: 4px;
+  box-shadow: 0 2px 0 #3f6f21;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+
+input[type="submit"]:hover {
+  cursor: pointer;
+  background: linear-gradient(to bottom, #5aac44 0, #519839 100%);
+}
+
+input[type="submit"].processing_payment {
+  background: #777;
+  box-shadow: none;
+  cursor: default;
+}
+
+fieldset.credit_card {
+  margin-top: 40px;
+  border-top: 1px solid #a5acb0;
+}
+
+.current_card {
+  width: 430px;
+  margin: 0 auto;
+}
+
+.current_card h4 {
+  display: block;
+}
+
+.current_card small {
+  display: inline-block;
+  width: 150px;
+}
+
+.form_buttons {
+  margin-top: 50px;
+}
+
+.delete_deactivate {
+  width: 430px;
+  margin: 50px auto 0 auto;
+  border-top: 1px solid #ccc;
+}
+
+.delete_deactivate p,
+.delete_deactivate h2,
+.delete_deactivate a {
+  display: block;
+  width: 100%;
+}
+
+.delete_deactivate h2 {
+  margin-top: 30px;
+}
+
+.delete_deactivate a {
+  margin-bottom: 50px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+h1.admin_header {
+  display: block;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #777;
+  text-align: center;
+}
+
+.admin_content {
+  text-align: center;
+  width: 430px;
+  margin: 0 auto;
+}
+
+.admin_content h3 {
+  display: block;
+  margin-top: 40px;
+}
+
+.admin_content h4.test_card_category_header {
+  display: block;
+  margin: 40px 0 20px 0;
+  font-size: 20px;
+}
+
+.admin_nothing_here {
+  display: block;
+  text-align: center;
+  margin: 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  font-size: 16px;
+}
+
+ul.admin_content_links {
+  padding-bottom: 5px;
+  border-bottom: 1px solid #777;
+}
+
+ul.admin_content_links li {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+ul.admin_content_links.test_cards {
+  padding-bottom: 30px;
+}
+
+ul.admin_content_links.test_cards li .test_card_number {
+  display: inline-block;
+  width: 200px;
+  text-align: left;
+}
+
+ul.admin_content_links.test_cards li span {
+  margin: 0;
+  padding-right: 10px;
+}
+
+ul.admin_content_links.test_cards li b {
+  display: inline-block;
+  width: 100px;
+  padding-left: 10px;
+  text-align: left;
+  font-size: 18px;
+}
+
+ol.admin_content_list {
+  margin-top: 20px;
+  padding-left: 15px;
+  list-style: decimal;
+  text-align: left;
+}
+
+ol.admin_content_list li {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  font-size: 16px;
+}
+
+ol.admin_content_list li b,
+ol.admin_content_list li span,
+ol.admin_content_list li small {
+  display: block;
+  margin-left: 0;
+}
+
+ol.admin_content_list li b,
+ol.admin_content_list li span {
+  line-height: 1em;
+}
+
+ol.admin_content_list li span,
+ol.admin_content_list li small {
+  color: #4d4d4d;
+}
+
+ol.admin_content_list li span {
+  margin-bottom: 10px;
+}
+
+ol.admin_content_list li small {
+  line-height: 1em;
+}
+
+ol.admin_content_list li small strong {
+  text-decoration: none;
+  display: inline-block;
+  width: 65px;
+  font-weight: normal;
+}
+
+.half-col {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.left-col {
+  width: 70%;
+}
+
+.right-col {
+  text-align: right;
+  width: 30%;
+}
+
+
+// BREAKPOINTS
+//
+
+@media(max-width: 600px) {
+  #welcome_page_content {
+    width: 400px;
+  }
+}
+
+@media(max-width: 500px) {
+  .messages-wrapper,
+  .current_card,
+  .delete_deactivate,
+  .admin_content {
+    width: 350px;
+  }
+
+  h1 {
+    box-sizing: border-box;
+    width: 350px;
+    font-size: 30px;
+    margin: 0 auto 30px auto;
+  }
+
+  h6 {
+    box-sizing: border-box;
+    width: 350px;
+    font-size: 20px;
+    margin: 0 auto 30px auto;
+  }
+
+  span {
+    margin: 0 10px 0 0;
+    font-size: 16px;
+  }
+
+  .start_page_form {
+    box-sizing: border-box;
+    width: 350px;
+  }
+
+  input {
+    box-sizing: border-box;
+    font-size: 18px;
+  }
+
+  .footer_spans {
+    display: block;
+    margin-top: 20px;
+  }
+}
+
+@media(max-width: 480px) {
+  #welcome_page_content {
+    width: 380px;
+  }
+
+  #welcome_page_logo,
+  #welcome_page_links {
+    float: none;
+    display: block;
+    text-align: center;
+  }
+
+  #welcome_page_links {
+    padding: 0 20px 30px 20px;
+  }
+
+  #welcome_page_links a.welcome_link_blue {
+    margin-left: 0;
+  }
+
+  #welcome_page_content_wrapper {
+    padding: 50px 0;
+  }
+
+  #welcome_page_content h2 {
+    font-size: 26px;
+  }
+
+  #welcome_page_content p,
+  #welcome_page_content h4 {
+    font-size: 18px;
+  }
+
+  ul.admin_content_links.test_cards li .test_card_number {
+    width: 180px;
+  }
+
+  ul.admin_content_links.test_cards li b {
+    width: 80px;
+    font-size: 16px;
+  }
+}
+
+@media(max-width: 400px) {
+  #welcome_page_content {
+    width: 320px;
+  }
+
+  #welcome_page_content p {
+    font-size: 16px;
+  }
+
+  h1,
+  h6,
+  .start_page_form,
+  .messages-wrapper,
+  .current_card,
+  .delete_deactivate,
+  .admin_content {
+    width: 300px;
+  }
+}

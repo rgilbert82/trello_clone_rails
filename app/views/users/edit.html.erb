@@ -1,0 +1,54 @@
+<h1>Edit User Info</h1>
+
+<%= render 'shared/messages' %>
+
+<div class="start_page_form">
+  <%= form_for @user do |f| %>
+    <div>
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, placeholder: "e.g., John" %>
+    </div>
+
+    <div>
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, placeholder: "e.g., Doe" %>
+    </div>
+
+    <div>
+      <%= f.label :email %>
+      <%= f.email_field :email, placeholder: "e.g., jdoe@example.com" %>
+    </div>
+
+    <div>
+      <%= f.label :password %>
+      <% if @user.new_record? %>
+        <%= f.password_field :password, placeholder: "e.g., ........." %>
+      <% else %>
+        <%= f.password_field :password %>
+      <% end %>
+    </div>
+
+    <div class="form_buttons">
+      <%= f.submit 'Update Account', class: '' %>
+      <div class="footer_spans">
+        <span class="form_footer_link"><%= link_to 'Cancel', account_path, class: '' %></span>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="delete_deactivate">
+  <% if !current_user_is_admin? && @user.active? %>
+    <h2>Deactivate TrelloClone</h2>
+    <p>You can end your subscription. Your credit card will no longer be charged, and you will no longer have access to the TrelloClone app, but all your data will be saved in our system in case you want to re-subscribe later.</p>
+    <%= link_to "Deactivate Account", deactivate_path, method: "post", data: { confirm: "Are you sure you want to deactivate your account? "} %>
+  <% elsif !current_user_is_admin? && !@user.active? %>
+    <h2>Subscribe to TrelloClone</h2>
+    <p>Enter your valid credit card information and gain access to all of TrelloClone's awesome features!</p>
+    <%= link_to "Subscribe Now!", subscribe_path %>
+  <% end %>
+
+  <h2>Delete TrelloClone</h2>
+  <p>You can delete your account. Your credit card info and all your data will be erased from our system for good.</p>
+  <%= link_to "Delete Account", user_path(@user), method: "delete", data: { confirm: "Are you sure you want to permanently delete your account? "} %>
+</div>

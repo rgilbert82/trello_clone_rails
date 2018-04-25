@@ -1,0 +1,39 @@
+<div>
+  <div class="close_modal_layer"></div>
+</div>
+
+<div class="board_options menu_activity">
+  <form action="" method="post">
+    <h3>Menu</h3>
+    <h4 class="menu_header"><img src="<%= asset_path('archive_icon.png') %>"></img><a href="#" class="delete_this_board">Archive This Board</a></h4>
+    <h4 class="menu_header menu_header_activity"><img src="<%= asset_path('activity_icon_2.png') %>"></img>Board Activity</h4>
+    <a class="x_out_card_options_window">
+      <span>
+        <div class="cross_x"></div>
+      </span>
+    </a>
+    <div id="all_activity">
+      {{#if activity}}
+        {{#each activity}}
+        <div class="activity_item">
+          <div class="initials_sidebar"><div class="initial_box initial_box_small">{{this.user_initials}}</div></div>
+          <div class="activity_description {{#if this.comment}}activity_description_comment{{/if}}">
+            <h2>{{this.user_name}}</h2>
+            {{#if this.comment}}
+              <h4>commented on {{{this.cardTitle}}}</h4>
+              <div class="activity_comment_wrapper">
+                <h5>{{{this.description}}}</h5>
+              </div>
+            {{else}}
+              <h4>{{{this.description}}}</h4>
+            {{/if}}
+            <span>{{this.date_time}}</span>
+          </div>
+        </div>
+        {{/each}}
+      {{else}}
+        <p class="no_activity">No activity yet</p>
+      {{/if}}
+    </div>
+  </form>
+</div>

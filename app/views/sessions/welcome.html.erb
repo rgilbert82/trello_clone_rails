@@ -1,0 +1,24 @@
+<div id="welcome_page">
+  <div id="welcome_page_header">
+    <div id="welcome_page_logo">
+      <img src="<%= asset_path('trello_welcome_logo.png') %>" height="40" />
+    </div>
+
+    <div id="welcome_page_links">
+      <%= link_to 'Log In', login_path, class: 'welcome_link_blue' %>
+      <%= link_to 'Sign Up', register_path, class: 'welcome_link_green' %>
+    </div>
+  </div>
+
+  <div id="welcome_page_content_wrapper">
+    <div id="welcome_page_content">
+      <h2>OMG! Check out my Trello clone!</h2>
+      <p>I made a clone of the popular project management app, Trello. I think it's pretty cool! I used Rails and Backbone.js. You can sign up for a new account, or log in with the following credentials:</p>
+
+      <div id="welcome_page_credentials">
+        <h4><b>Email:</b> 'hello@world.com'</h4>
+        <h4><b>Password:</b> 'password'</h4>
+      </div>
+    </div>
+  </div>
+</div>

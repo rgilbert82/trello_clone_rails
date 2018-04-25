@@ -1,0 +1,42 @@
+<input class="hidden_card_selector_input" data-card_id="{{id}}" data-list_id="{{list_id}}" hidden />
+{{#if mainPicture}}
+  <div class="card_selector_image">
+    <img src="{{mainPicture.url_thumb}}" height="140"/>
+  </div>
+{{/if}}
+
+{{#if labels}}
+<div class="card_selector_labels">
+  {{#each labels}}
+  <div class="card_selector_label label_{{this}}"></div>
+  {{/each}}
+</div>
+{{/if}}
+
+<h3>{{title}}</h3>
+
+<div class="card_selector_icons">
+  {{#if due_date}}
+  <div class="card_selector_icon card_selector_date_icon {{#if due_date_highlighted}}highlighted_date{{/if}}">
+    {{#if due_date_highlighted}}
+      <img height="12px" width="12px" src="<%=asset_path('clock_icon_white.png')%>" />
+    {{else}}
+      <img height="12px" width="12px" src="<%=asset_path('clock_icon_gray.png')%>" />
+    {{/if}}
+    <span>{{due_date.date}}</span>
+  </div>
+  {{/if}}
+
+  {{#if activity}}
+  <div class="card_selector_icon card_selector_activity_icon">
+    <img height="12px" width="12px" src="<%=asset_path('activity_icon_1.png')%>" />
+  </div>
+  {{/if}}
+
+  {{#if comments}}
+  <div class="card_selector_icon card_selector_comments_icon">
+    <img height="12px" width="12px" src="<%=asset_path('comment_icon.png')%>" />
+    <span>{{comments.length}}</span>
+  </div>
+  {{/if}}
+</div>

@@ -1,0 +1,22 @@
+<h1>Reset your password</h1>
+
+<%= render 'shared/messages' %>
+
+<div class="start_page_form">
+  <%= form_tag password_resets_path do %>
+    <div>
+      <%= label_tag :password, 'New Password', class: '' %>
+      <%= password_field_tag :password, '', class: '' %>
+
+      <%= hidden_field_tag :token, @token %>
+    </div>
+
+    <div class="form_buttons">
+      <%= submit_tag 'Submit', class: '' %>
+
+      <div class="footer_spans">
+        <span class="form_footer_link"><%= link_to 'Cancel', welcome_path, class: '' %></span>
+      </div>
+    </div>
+  <% end %>
+</div>

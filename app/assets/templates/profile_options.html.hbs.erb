@@ -1,0 +1,21 @@
+<div>
+  <div class="close_modal_layer"></div>
+</div>
+
+<div class="board_options profile_options_modal">
+  <form action="" method="post">
+    <h3>Account</h3>
+    <a class="x_out_card_options_window">
+      <span>
+        <div class="cross_x"></div>
+      </span>
+    </a>
+    <div id="profile_options_links" >
+      {{#if admin}}
+        <a href="/admin">Admin Options</a>
+      {{/if}}
+      <a href="/account">My Account</a>
+      <a href="/logout">Log Out</a>
+    </div>
+  </form>
+</div>

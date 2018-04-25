@@ -1,0 +1,34 @@
+<div class="list_item_wrapper">
+  <input class="hidden_list_input" data-list_id="{{id}}" hidden />
+
+  <div class="list_header">
+    <div>
+      <a href="#" class="list_header_title"><h2>{{title}}</h2></a>
+      <input type="text" value="{{title}}" hidden />
+    </div>
+    <div class="ellipsis_icon list_header_button"><a href="#"><span class="ellipsis_icon_list_options"></span></a></div>
+  </div>
+
+  <div class="cards">
+    <ul class="card_selector_list" data-list_id="{{id}}"></ul>
+  </div>
+
+  <div class="list_footer">
+    <a class="footer_add_a_card" href="#">Add a card...</a>
+
+    <form class="add_new_card_form" action="" method="post">
+      <textarea id="new_card_title" name="new_card_title"></textarea>
+      <div id="add_card_submit_or_cancel">
+        <input type="submit" value="Save" />
+        <div id="cancel_add_card">
+          <a href="#">
+            <span>
+              <div class="cross_x"></div>
+            </span>
+          </a>
+        </div>
+        <a class="add_card_ellipsis" href="#"><img src="<%= asset_path('ellipsis_icon_large.png') %>" height="30px" width="30px"/></a>
+      </div>
+    </form>
+  </div>
+</div>

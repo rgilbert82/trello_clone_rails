@@ -1,0 +1,32 @@
+<div class="start_page_form">
+  <p class="test_card_notice">The credit card processing service is currently operating in test mode, so no cards will actually be charged. You can use a <%= link_to "Test Card", test_cards_path, target: '_blank' %> to sign up.</p>
+
+  <%= form_tag subscribe ? activate_path : update_payment_path, method: "post", id: "payment-form" do %>
+    <fieldset class="credit_card">
+      <span class="payment-errors"></span>
+
+      <div>
+        <label for="credit-card-number">Credit Card Number</label>
+        <input id="credit-card-number" type="text" data-stripe="number" />
+      </div>
+
+      <div>
+        <label for="security-code">Security Code</label>
+        <input id="security-code" type="text" data-stripe="cvc" />
+      </div>
+
+      <div>
+        <label>Expiration Date</label>
+        <%= select_month(Date.today, {add_month_numbers: true}, data: { stripe: "exp-month" }) %>
+        <%= select_year(Date.today.year, {start_year: Date.today.year, end_year: Date.today.year + 4}, data: { stripe: "exp-year" }) %>
+      </div>
+    </fieldset>
+
+    <div class="form_buttons">
+      <input type="submit" value="Submit" />
+      <div class="footer_spans">
+        <span class="form_footer_link"><%= link_to 'Cancel', account_path, class: '' %></span>
+      </div>
+    </div>
+  <% end %>
+</div>

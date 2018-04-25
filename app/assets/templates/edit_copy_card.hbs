@@ -1,0 +1,61 @@
+<div class="card_options copy_card">
+  <form action="" method="post">
+    <h3>Copy Card</h3>
+    <a class="x_out_card_options_window">
+      <span>
+        <div class="cross_x"></div>
+      </span>
+    </a>
+
+    <h4>Title</h4>
+    <textarea name="title" id="copy_card_title">{{title}}</textarea>
+
+    {{#if labels}}
+    <h4>Keep...</h4>
+    {{else if comments}}
+    <h4>Keep...</h4>
+    {{/if}}
+
+    {{#if labels}}
+    <label>
+      <input type="checkbox" name="labels" id="copy_card_labels" checked/>
+      Labels<strong>({{labels.length}})</strong>
+    </label>
+    {{/if}}
+
+    {{#if comments}}
+    <label>
+      <input type="checkbox" name="comments" id="copy_card_comments" checked />
+      Comments<strong>({{comments.length}})</strong>
+    </label>
+    {{/if}}
+
+
+    <h4>Copy To...</h4>
+    <div class="select_board dropdown">
+      <span class="category_span">Board</span>
+      <span class="title_span"></span>
+      <select id="boards_dropdown_select" name="board" class="boards_dropdown">
+        <optgroup label="Boards">
+        </optgroup>
+      </select>
+    </div>
+    <div class="select_list dropdown">
+      <span class="category_span">List</span>
+      <span class="title_span"></span>
+      <select id="lists_dropdown_select" name="list" class="lists_dropdown">
+        <optgroup label="Lists">
+        </optgroup>
+      </select>
+    </div>
+    <div class="select_position dropdown">
+      <span class="category_span">Position</span>
+      <span class="title_span"></span>
+      <select id="positions_dropdown_select" name="position" class="positions_dropdown">
+        <optgroup label="Positions">
+        </optgroup>
+      </select>
+    </div>
+    <input type="submit" value="Create Card" />
+  </form>
+</div>
